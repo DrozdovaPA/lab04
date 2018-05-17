@@ -88,6 +88,27 @@ int main(){
     for (int i=0; i<3; i++){
         cout<<i<<":\t   "<<&studarray[i]<<"\t\t      "<< sizeof(studarray[i])<<'\n';
     }
+    cout<<"FIRST ELEMENT\n";
+    cout<<"\t Address of field: \t Size of field\t Offset:\n";
+    cout<<"NAME: \t\t"<<&studarray[0].name<<"\t\t"<<sizeof(studarray[0].name)
+            <<'\t'<<offsetof(struct Student, name)<<'\n';
+    cout<<"Binary: ";
+    print_in_binary(&studarray[0].name, sizeof(studarray[0].name));
+    cout<<"Hex: ";
+    print_in_hex(&studarray[0].name, sizeof(studarray[0].name));
+    cout<<"\nYEAR: \t\t"<<&studarray[0].year <<"\t\t"<<sizeof(studarray[0].year)
+            <<'\t'<<offsetof(struct Student, year)<<'\n';
+    cout<<"Binary: ";
+    print_in_binary(&studarray[0].year, sizeof(studarray[0].year));
+    cout<<"Hex: ";
+    print_in_hex(&studarray[0].year, sizeof(studarray[0].year));
+    cout<<"\nSRED BALL: \t\t"<<&studarray[0].sred_ball<<"\t\t"
+            <<sizeof(studarray[0].sred_ball)
+            <<'\t'<<offsetof(struct Student, sred_ball)<<'\n';
+    cout<<"Binary: ";
+    print_in_binary(&studarray[0].sred_ball, sizeof(studarray[0].sred_ball));
+    cout<<"Hex: ";
+    print_in_hex(&studarray[0].sred_ball, sizeof(studarray[0].sred_ball));
     return 0;
 }
 
