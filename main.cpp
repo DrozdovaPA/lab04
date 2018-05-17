@@ -69,4 +69,39 @@ int main(){
     assert(nibble_to_hex(0xd) == 'd');
     assert(nibble_to_hex(0xe) == 'e');
     assert(nibble_to_hex(0xf) == 'f');
+    uint16_t operand1, operand2, res;
+    char operatorr;
+    cin >> operand1 >> operatorr >> operand2;
+    if (operatorr == '&'){
+        res = operand1 & operand2;
+    }
+    if (operatorr == '|'){
+        res = operand1 | operand2;
+    }
+    if (operatorr == '^'){
+        res = operand1 ^ operand2;
+    }
+    print_in_hex(&operand1, sizeof(operand1));
+    cout<<' '<<operatorr<<' ';
+    print_in_hex(&operand2, sizeof(operand2));
+    cout<<' '<<'=';
+    print_in_binary(&operand1, sizeof(operand1));
+    cout<<' '<<operatorr<<' ';
+    print_in_binary(&operand2, sizeof(operand2));
+    cout<<'='<<' ';
+    print_in_binary(&res, sizeof(res));
+    return 0;
 }
+
+
+
+/*print_in_hex(operand1);
+cout<<operand1<<' '<<operatorr<<' ';
+print_in_hex(operand2);
+cout<<operand2<<' '<<'='<<' ';
+print_in_binary(operand1);
+cout<<operand1<<' '<<operatorr<<' ';
+print_in_binary(operand2);
+cout<<operand2<<' '<<'='<<' ';
+print_in_binary(res);
+cout<<res;*/
