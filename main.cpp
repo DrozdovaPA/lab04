@@ -40,6 +40,18 @@ void print_in_binary(uint8_t byte) {
     }
     cout << bit_digit(byte, 0);
 }
+void print_in_binary(const void* data, size_t size) {
+    const uint8_t* bytes = as_bytes(data);
+    for (size_t i = 0; i < size; i++) {
+        print_in_binary(bytes[i]);
+        if ((i + 1) % 4 == 0) {
+            cout << '\n';
+        }
+        else {
+            cout << ' ';
+        }
+    }
+}
 int main(){
     assert(nibble_to_hex(0x0) == '0');
     assert(nibble_to_hex(0x1) == '1');
@@ -57,5 +69,4 @@ int main(){
     assert(nibble_to_hex(0xd) == 'd');
     assert(nibble_to_hex(0xe) == 'e');
     assert(nibble_to_hex(0xf) == 'f');
-    print_in_binary(3);
 }
