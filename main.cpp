@@ -52,6 +52,14 @@ void print_in_binary(const void* data, size_t size) {
         }
     }
 }
+struct Student {
+    char name[17];
+    uint32_t year;
+    float sred_ball;
+    int sex:1;
+    uint8_t courses;
+    Student*starosta;
+};
 int main(){
     assert(nibble_to_hex(0x0) == '0');
     assert(nibble_to_hex(0x1) == '1');
@@ -90,18 +98,12 @@ int main(){
     print_in_binary(&operand2, sizeof(operand2));
     cout<<'='<<' ';
     print_in_binary(&res, sizeof(res));
+    Student studarray[3]={
+            {"anya", 2017, 4.3, 0, 7, &studarray[1]},
+            {"sasha", 2017, 4.0, 1, 7, nullptr },
+            {"Alik", 2017, 3.4, 1, 7, &studarray[1]}
+    };
     return 0;
 }
 
 
-
-/*print_in_hex(operand1);
-cout<<operand1<<' '<<operatorr<<' ';
-print_in_hex(operand2);
-cout<<operand2<<' '<<'='<<' ';
-print_in_binary(operand1);
-cout<<operand1<<' '<<operatorr<<' ';
-print_in_binary(operand2);
-cout<<operand2<<' '<<'='<<' ';
-print_in_binary(res);
-cout<<res;*/
