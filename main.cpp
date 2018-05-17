@@ -12,6 +12,22 @@ void print_in_hex (uint8_t byte)
     cout << nibble_to_hex(byte >> 4)
             << nibble_to_hex(byte & 0xf);
 }
+const uint8_t* as_bytes(const void* data)
+{
+    return reinterpret_cast<const uint8_t*>(data);
+}
+void print_in_hex(const void* data, size_t size) {
+    const uint8_t* bytes = as_bytes(data);
+    for (size_t i = 0; i < size; i++) {
+        print_in_hex(bytes[i]);
+        if ((i + 1) % 16 == 0) {
+            cout << '\n';
+        }
+        else {
+            cout << ' ';
+        }
+    }
+}
 int main(){
     assert(nibble_to_hex(0x0) == '0');
     assert(nibble_to_hex(0x1) == '1');
@@ -29,7 +45,8 @@ int main(){
     assert(nibble_to_hex(0xd) == 'd');
     assert(nibble_to_hex(0xe) == 'e');
     assert(nibble_to_hex(0xf) == 'f');
-    print_in_hex(0x0);
-    print_in_hex(0xab);
-    print_in_hex(0xff);
+    uint32_t u32 = 0x42;
+    cout << "u32 bytes: ";
+    print_in_hex(&u32, sizeof(u32));
+    cout << '\n';
 }
