@@ -3,7 +3,7 @@
 using namespace std;
 char nibble_to_hex (uint8_t i)
 {
-    assert(i>=0 && i<=15);
+    assert(0x0 <= i && i <= 0xf);
     char digits[] = "0123456789abcdef";
     return digits[i];
 }
