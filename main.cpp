@@ -77,32 +77,17 @@ int main(){
     assert(nibble_to_hex(0xd) == 'd');
     assert(nibble_to_hex(0xe) == 'e');
     assert(nibble_to_hex(0xf) == 'f');
-    uint16_t operand1, operand2, res;
-    char operatorr;
-    cin >> operand1 >> operatorr >> operand2;
-    if (operatorr == '&'){
-        res = operand1 & operand2;
-    }
-    if (operatorr == '|'){
-        res = operand1 | operand2;
-    }
-    if (operatorr == '^'){
-        res = operand1 ^ operand2;
-    }
-    print_in_hex(&operand1, sizeof(operand1));
-    cout<<' '<<operatorr<<' ';
-    print_in_hex(&operand2, sizeof(operand2));
-    cout<<' '<<'=';
-    print_in_binary(&operand1, sizeof(operand1));
-    cout<<' '<<operatorr<<' ';
-    print_in_binary(&operand2, sizeof(operand2));
-    cout<<'='<<' ';
-    print_in_binary(&res, sizeof(res));
     Student studarray[3]={
             {"anya", 2017, 4.3, 0, 7, &studarray[1]},
             {"sasha", 2017, 4.0, 1, 7, nullptr },
             {"Alik", 2017, 3.4, 1, 7, &studarray[1]}
     };
+    cout<<"Address of array: "<< &studarray<<'\n';
+    cout<<"Size of array: "<< sizeof(studarray)<<'\n';
+    cout<<"\t Address of elem:\t Size of elem:\n";
+    for (int i=0; i<3; i++){
+        cout<<i<<":\t   "<<&studarray[i]<<"\t\t      "<< sizeof(studarray[i])<<'\n';
+    }
     return 0;
 }
 
